@@ -507,3 +507,33 @@ body {
     }
   }
 }
+
+.theme-color {
+  color: @primary-color;
+}
+
+.ant-card.borderd {
+  &>.ant-card-head {
+    border-left: 3px solid @primary-color;
+
+    &>.ant-card-head-wrapper {
+      &>.ant-card-head-title {
+        color: @primary-color;
+      }
+    }
+  }
+}
+
+.font-consolas {
+  font-family: consolas, monaco;
+}
+
+.ant-cascader-input {
+
+  //解决可搜索级联选择器label被遮盖问题
+  .ant-input {
+    width: 100%;
+    background-color: transparent !important;
+    cursor: pointer;
+  }
+}

@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 /**
  * 该文件是为了按需加载，剔除掉了一些不需要的框架组件。
@@ -46,9 +45,17 @@ import {
   Skeleton,
   Popconfirm,
   message,
-  notification
+  notification,
+  Slider,
+  Collapse,
+  Statistic,
+  Affix,
+  Cascader,
+  Carousel
 } from 'ant-design-vue'
-// import VueCropper from 'vue-cropper'
+import VueCropper from 'vue-cropper'
+
+import moment from 'moment'
 
 Vue.use(LocaleProvider)
 Vue.use(Layout)
@@ -87,8 +94,15 @@ Vue.use(Upload)
 Vue.use(Progress)
 Vue.use(Skeleton)
 Vue.use(Popconfirm)
-// Vue.use(VueCropper)
+Vue.use(VueCropper)
 Vue.use(notification)
+Vue.use(Slider)
+Vue.use(Collapse)
+Vue.use(Statistic)
+Vue.use(Affix)
+Vue.use(Cascader)
+Vue.use(Carousel)
+
 
 Vue.prototype.$confirm = Modal.confirm
 Vue.prototype.$message = message
@@ -97,3 +111,6 @@ Vue.prototype.$info = Modal.info
 Vue.prototype.$success = Modal.success
 Vue.prototype.$error = Modal.error
 Vue.prototype.$warning = Modal.warning
+
+Vue.moment = moment;
+Vue.prototype.$moment = moment;

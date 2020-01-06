@@ -146,7 +146,7 @@ export default {
       console.log(`selected ${value}`)
     },
     getList () {
-      this.$http.get('/list/article').then(res => {
+      this.$kaxios.get('/list/article').then(res => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
@@ -154,7 +154,7 @@ export default {
     },
     loadMore () {
       this.loadingMore = true
-      this.$http.get('/list/article').then(res => {
+      this.$kaxios.get('/list/article').then(res => {
         this.data = this.data.concat(res.result)
       }).finally(() => {
         this.loadingMore = false

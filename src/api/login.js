@@ -1,5 +1,8 @@
 import api from './index'
-import { axios } from '@/utils/request'
+import {
+  kaxios,
+  laxios
+} from '@/utils/request'
 
 /**
  * login func
@@ -12,25 +15,46 @@ import { axios } from '@/utils/request'
  * @param parameter
  * @returns {*}
  */
-export function login (parameter) {
-  return axios({
+console.log('kaxios', kaxios);
+export function login(parameter) {
+
+  return kaxios({
     url: '/auth/login',
     method: 'post',
     data: parameter
   })
 }
 
-export function getSmsCaptcha (parameter) {
-  return axios({
-    url: api.SendSms,
+export function regist(parameter) {
+  return kaxios({
+    url: '/auth/regist',
     method: 'post',
     data: parameter
   })
 }
 
-export function getInfo () {
-  return axios({
-    url: '/user/info',
+export function isRegist(phone) {
+  return kaxios({
+    url: '/auth/isRegist',
+    method: 'post',
+    data: {
+      phone
+    }
+  })
+}
+
+export function sendSmsCaptcha(parameter) {
+  return kaxios({
+    // url: api.SendSms,
+    url: '/auth/captcha',
+    method: 'post',
+    data: parameter
+  })
+}
+
+export function getInfo() {
+  return kaxios({
+    url: '/auth/info',
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -38,15 +62,15 @@ export function getInfo () {
   })
 }
 
-export function getCurrentUserNav (token) {
-  return axios({
+export function getCurrentUserNav(token) {
+  return kaxios({
     url: '/user/nav',
     method: 'get'
   })
 }
 
-export function logout () {
-  return axios({
+export function logout() {
+  return kaxios({
     url: '/auth/logout',
     method: 'post',
     headers: {
@@ -59,10 +83,24 @@ export function logout () {
  * get user 2step code open?
  * @param parameter {*}
  */
-export function get2step (parameter) {
-  return axios({
+export function get2step(parameter) {
+  return kaxios({
     url: api.twoStepCode,
     method: 'post',
     data: parameter
+  })
+}
+
+export function getPromoteData() {
+  return kaxios({
+    url: '/auth/promote',
+    method: 'get'
+  })
+}
+
+export function getSysNow() {
+  return laxios({
+    url: '/api/sys_now',
+    method: 'get',
   })
 }

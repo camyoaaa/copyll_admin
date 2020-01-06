@@ -40,7 +40,8 @@
       />
 
       <!-- layout content -->
-      <a-layout-content :style="{ height: '100%', margin: '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }">
+      <!-- <a-layout-content :style="{ height: '100%', margin: '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }"> -->
+          <a-layout-content :style="{ height: '100%',  paddingTop: fixedHeader ? '64px' : '0' }">
         <multi-tab v-if="multiTab"></multi-tab>
         <transition name="page-transition">
           <route-view />
@@ -60,17 +61,16 @@
 </template>
 
 <script>
+import { asyncRouterMap } from '@/config/router.config.js'
 import { triggerWindowResizeEvent } from '@/utils/util'
 import { mapState, mapActions } from 'vuex'
 import { mixin, mixinDevice } from '@/utils/mixin'
 import config from '@/config/defaultSettings'
-
 import RouteView from './RouteView'
 import SideMenu from '@/components/Menu/SideMenu'
 import GlobalHeader from '@/components/GlobalHeader'
 import GlobalFooter from '@/components/GlobalFooter'
 import SettingDrawer from '@/components/SettingDrawer'
-
 export default {
   name: 'BasicLayout',
   mixins: [mixin, mixinDevice],
@@ -109,7 +109,8 @@ export default {
     }
   },
   created () {
-    this.menus = this.mainMenu.find(item => item.path === '/').children
+    // this.menus = this.mainMenu.find(item => item.path === '/').children
+    this.menus = asyncRouterMap.find((item) => item.path === '/').children
     this.collapsed = !this.sidebarOpened
   },
   mounted () {
@@ -157,15 +158,12 @@ export default {
  * You can easily play with the page transition by editing
  * these styles.
  */
-
 .page-transition-enter {
   opacity: 0;
 }
-
 .page-transition-leave-active {
   opacity: 0;
 }
-
 .page-transition-enter .page-transition-container,
 .page-transition-leave-active .page-transition-container {
   -webkit-transform: scale(1.1);

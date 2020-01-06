@@ -4,13 +4,14 @@ const getters = {
   color: state => state.app.color,
   token: state => state.user.token,
   avatar: state => state.user.avatar,
-  nickname: state => state.user.name,
+  nickname: state => state.user.username,
   welcome: state => state.user.welcome,
   roles: state => state.user.roles,
-  userInfo: state => state.user.info,
+  userInfo: state => state.user,
   addRouters: state => state.permission.addRouters,
   multiTab: state => state.app.multiTab,
-  lang: state => state.i18n.lang
+  lang: state => state.i18n.lang,
+  userid: state => state.user.userid,
 }
 
 export default getters

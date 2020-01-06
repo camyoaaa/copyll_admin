@@ -77,6 +77,9 @@ const vueConfig = {
           // 'primary-color': '#F5222D',
           // 'link-color': '#F5222D',
           // 'border-radius-base': '4px'
+          'menu-inline-toplevel-item-height':'45px',
+          'menu-item-height':'45px',
+          'font-size-base':'14px'
         },
         // DO NOT REMOVE THIS LINE
         javascriptEnabled: true
@@ -99,7 +102,8 @@ const vueConfig = {
 
   // disable source map in production
   productionSourceMap: false,
-  lintOnSave: undefined,
+  // lintOnSave: undefined,
+  lintOnSave: false,
   // babel-loader no-ignore node_modules/*
   transpileDependencies: []
 }

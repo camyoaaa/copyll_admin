@@ -141,10 +141,13 @@ export default {
       if (icon === 'none' || icon === undefined) {
         return null
       }
+      if (typeof icon === 'string' && icon.startsWith('@')) {//@开头的是远程svg图标
+        return (<RemoteIcon type={`icon-${icon.slice(1)}`} style={{fontSize:'20px'}}/>)
+      }
       const props = {}
       typeof (icon) === 'object' ? props.component = icon : props.type = icon
       return (
-        <Icon {... { props } }/>
+        <Icon {... { props } } style={{fontSize:'20px'}}/>
       )
     }
   },
