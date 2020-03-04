@@ -87,15 +87,26 @@ export const asyncRouterMap = [
           permission: ['form']
         },
         children: [{
-          path: '/settings/contact',
-          name: 'ContactSettings',
-          component: () => import('@/views/settings/contact.vue'),
-          meta: {
-            title: '联系方式',
-            keepAlive: true,
-            permission: ['form']
+            path: '/settings/contact',
+            name: 'ContactSettings',
+            component: () => import('@/views/settings/contact.vue'),
+            meta: {
+              title: '联系方式',
+              keepAlive: true,
+              permission: ['form']
+            }
+          },
+          {
+            path: '/settings/task',
+            name: 'TaskSettings',
+            component: () => import('@/views/settings/contact.vue'),
+            meta: {
+              title: '任务配置',
+              keepAlive: true,
+              permission: ['form']
+            }
           }
-        }]
+        ]
       },
       // forms
       {

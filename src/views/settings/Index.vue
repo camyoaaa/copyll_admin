@@ -57,7 +57,10 @@ export default {
             },
 
             pageTitle: '',
-            settingMenus: [{ name: '联系方式', routeName: 'ContactSettings', routePath: '/settings/contact' }]
+            settingMenus: [
+                { name: '联系方式', routeName: 'ContactSettings', routePath: '/settings/contact' },
+                { name: '任务配置', routeName: 'TaskSettings', routePath: '/settings/task' }
+            ]
         }
     },
     created() {
